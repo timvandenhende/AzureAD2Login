@@ -1,0 +1,27 @@
+{
+  "title": "AzureAD2Login",
+  "version": "1.00",
+  "name": "AzureAD2Login",
+  "description": "Plugin that alows a user to sign in trough Azure AD 2.0.",
+  "author": "Tim Vanden Hende",
+  "options": [
+    {
+      "label": "client_id",
+      "name": "client_id",
+      "type": "Text",
+      "default": ""
+    },
+    {
+      "label": "scope",
+      "name": "scope",
+      "type": "Text",
+      "default": "offline_access%20https://graph.microsoft.com/user.read"
+    },
+    {
+      "label": "client_secret",
+      "name": "client_secret",
+      "type": "Text",
+      "default": ""
+    }
+  ]
+}
