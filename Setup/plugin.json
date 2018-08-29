@@ -1,8 +1,8 @@
 {
-  "title": "AzureAD2Login",
+  "title": "Login",
   "version": "1.00",
-  "name": "AzureAD2Login",
-  "description": "Plugin that alows a user to sign in trough Azure AD 2.0.",
+  "name": "Login",
+  "description": "Plugin that alows a user to sign in trough Azure AD 2.0 and Google.",
   "author": "Tim Vanden Hende",
   "options": [
     {
@@ -20,6 +20,24 @@
     {
       "label": "client_secret",
       "name": "client_secret",
+      "type": "Text",
+      "default": ""
+    },
+    {
+      "label": "GoogleLoginScope",
+      "name": "GoogleLoginScope",
+      "type": "Text",
+      "default": "https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.metadata.readonly"
+    },
+    {
+      "label": "Googleclient_id",
+      "name": "Googleclient_id",
+      "type": "Text",
+      "default": ""
+    },
+    {
+      "label": "Googleclient_secret",
+      "name": "Googleclient_secret",
       "type": "Text",
       "default": ""
     }
