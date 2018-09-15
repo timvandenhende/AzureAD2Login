@@ -5,6 +5,9 @@
  */
 namespace Plugin\Login;
 
+use Plugin\Smartsysteem\BootstrapFormModel;
+use Plugin\Smartsysteem\Model;
+
 class SiteController extends \Ip\Controller
 {
     public function getTitle()
@@ -33,8 +36,17 @@ class SiteController extends \Ip\Controller
                 }
             }
             else {
-                $returndata .= "Gelieve in te loggen";
-                $returndata .= '<p><a href="'.AzureModel::Get_code_url().'">Inloggen via 0365</a></p>';
+                $returndata .= Model::ErrorAlert("Hallo!","Gelieve in te loggen");
+                $returndata .= '<div class="col-md-6"><a href="'.AzureModel::Get_code_url().'"><button class="btn btn-primary">Inloggen als student of medewerker</button></a></div>';
+                $returndata .= '<div class="col-md-6"><h2>Inloggen voor SMARTscholen</h2>';
+                $returndata .= BootstrapFormModel::NewForm('locallogin','locallogin',ipConfig()->baseUrl());
+                $returndata .= BootstrapFormModel::RenderFormElementText('Gebruikersnaam','username',"username",true);
+                $returndata .= BootstrapFormModel::RenderFormElementPassword('Wachtwoord','password',"password",true);
+                $returndata .= BootstrapFormModel::RenderSA('Smartsysteem.checklocallogin');
+                $returndata .= BootstrapFormModel::RenderSecurityToken();
+                $returndata .= BootstrapFormModel::RenderSubmitbutton('Inloggen');
+                $returndata .= BootstrapFormModel::CloseForm();
+                $returndata .= '</div>';
             }
         }
         return $returndata;

@@ -13,7 +13,7 @@ class AzureModel
                 &response_type=code
                 &redirect_uri='.ipConfig()->baseUrl().'login
                 &response_mode=query
-                &prompt=consentcomp
+                &prompt=consent
                 &scope='.ipGetOption('Login.scope');
     }
 
@@ -75,7 +75,7 @@ class AzureModel
                 ipLog()->log('Login', 'Error while executing my database query: '.$e);
             }
         }
-        return "<p>Welkom in de planningstool voor de SMART-stage</p><p></p>";
+        return "<p>Welkom in de planningstool voor de SMART-stage</p><p><a href='".ipConfig()->baseUrl()."/dashboard'>Klik hier om naar je dashboard te gaan.</a></p>";
     }
 
     public static function refresh_token(){
